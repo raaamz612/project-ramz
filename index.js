@@ -9,7 +9,7 @@ let personalMovieDB = {
 };
 
 
-
+/* // первый способ с помощью for
 for (let i = 0; i < 2; i++) {
     let a = prompt('Один из последних просмотренных фильмов?'),
         b = prompt('На сколько оцените его?');
@@ -22,7 +22,38 @@ for (let i = 0; i < 2; i++) {
         i--;
     }
 
-};
+}; */
+
+// второй способ... здесь мы юзаем while
+let i = 0;
+while (i < 2) {
+    let a = prompt('Один из последних просмотренных фильмов?'),
+        b = prompt('На сколько оцените его?');
+    i++;
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        console.log('все ок');
+        personalMovieDB.movies[a] = b;
+    } else {
+        console.log('не все ок');
+        i--;
+    }
+}
+
+/* // цикл do while... пока не получаилось-_-
+let i = 0;
+do {
+    var a = prompt('Один из последних просмотренных фильмов?');
+    var b = prompt('На сколько оцените его?');
+    i++;
+} while (i < 2) {
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        console.log('все ок');
+        personalMovieDB.movies[a] = b;
+    } else {
+        console.log('не все ок');
+        i--;
+    }
+}; */
 
 if (personalMovieDB.count < 10) {
     console.log('Просмотрено довольно мало фильмов');
